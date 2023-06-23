@@ -12,7 +12,7 @@ class Course extends Model
         'name',
         'description',
         'price',
-        'created_at',
+        
     ];
 
     public function lessons()
@@ -22,7 +22,7 @@ class Course extends Model
 
     public function users()
     {
-        return $this->belongsToMany(User::class, 'course_user');
+        return $this->belongsToMany(User::class);
     }
 
     public function quiz()

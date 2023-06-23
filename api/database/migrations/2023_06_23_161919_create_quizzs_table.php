@@ -15,6 +15,8 @@ class CreateQuizzsTable extends Migration
     {
         Schema::create('quizzs', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('course_id');
+            $table->string('title');
             $table->timestamps();
         });
     }
