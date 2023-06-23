@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\CourseController;
+use App\Http\Controllers\LessonController;
+use App\Http\Controllers\QuizController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -14,6 +17,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+Route::get('/courses', [CourseController::class, 'index']);
+Route::get('/lessons', [LessonController::class, 'index']);
+Route::get('/lessons/{id}', [LessonController::class, 'show']);
+Route::post('/lessons', [LessonController::class, 'store']);
+Route::put('/lessons/{id}', [LessonController::class, 'update']);
+Route::delete('/lessons/{id}', [LessonController::class, 'destroy']);
+Route::get('/quizzes', [QuizController::class, 'index']);
