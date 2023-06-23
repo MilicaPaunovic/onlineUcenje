@@ -20,14 +20,14 @@ use Illuminate\Support\Facades\Route;
 
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
-
+Route::get('/courses', [CourseController::class, 'index']);
+Route::get('/lessons', [LessonController::class, 'index']);
+Route::get('/lessons/{id}', [LessonController::class, 'show']);
+Route::post('/lessons', [LessonController::class, 'store']);
+Route::put('/lessons/{id}', [LessonController::class, 'update']);
+Route::delete('/lessons/{id}', [LessonController::class, 'destroy']);
+Route::get('/quizzes', [QuizController::class, 'index']);
 Route::group(['middleware' => 'auth:sanctum'], function () {
     Route::post('/logout', [AuthController::class, 'logout']);
-    Route::get('/courses', [CourseController::class, 'index']);
-    Route::get('/lessons', [LessonController::class, 'index']);
-    Route::get('/lessons/{id}', [LessonController::class, 'show']);
-    Route::post('/lessons', [LessonController::class, 'store']);
-    Route::put('/lessons/{id}', [LessonController::class, 'update']);
-    Route::delete('/lessons/{id}', [LessonController::class, 'destroy']);
-    Route::get('/quizzes', [QuizController::class, 'index']);
+  
 });
