@@ -13,6 +13,9 @@ class Lesson extends Model
         'content',
         'order',
         'video',
+        'course_id',
+        
+    
 
     ];
 

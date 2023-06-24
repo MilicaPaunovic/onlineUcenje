@@ -34,7 +34,7 @@ class LessonController extends Controller
     public function store(Request $request)
     {
         $lesson = Lesson::create($request->all());
-
+        
         return new LessonResource($lesson);
     }
 

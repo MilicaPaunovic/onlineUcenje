@@ -10,12 +10,14 @@ import Test from './Test';
 import Profesor from './Profesor';
 import ProfesorKurs from './ProfesorKurs';
 import Update from './Update';
+import Insert from './Insert';
 function App() {
   return (
     <Router>
     
         <Navbar></Navbar>
         <Routes>
+        <Route path="/insert/:id" element={   <Insert></Insert>} />
          
         <Route path="/update/:id" element={   <Update></Update>} />
 
