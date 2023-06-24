@@ -23,7 +23,8 @@ function Login() {
         if(response.data.status==200){
           alert("USPEH")
           window.sessionStorage.setItem('token',response.data.access_token)
-          navigate('/');
+          ///if(response.data.role==)
+          navigate('/kursevi');
         }else{
           alert("GRESKA")
 
