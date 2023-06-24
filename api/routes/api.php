@@ -27,7 +27,9 @@ Route::get('/lessons/{id}', [LessonController::class, 'show']);
 Route::post('/lessons', [LessonController::class, 'store']);
 Route::put('/lessons/{id}', [LessonController::class, 'update']);
 Route::delete('/lessons/{id}', [LessonController::class, 'destroy']);
-Route::get('/quizzes', [QuizController::class, 'index']);
+ 
+Route::get('/quizzes/{id}', [QuizController::class, 'index']);
+
 Route::group(['middleware' => 'auth:sanctum'], function () {
     Route::post('/logout', [AuthController::class, 'logout']);
   

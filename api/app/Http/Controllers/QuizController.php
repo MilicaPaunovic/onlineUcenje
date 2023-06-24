@@ -8,10 +8,10 @@ use Illuminate\Http\Request;
 
 class QuizController extends Controller
 {
-    public function index()
+    public function index($course_id)
     {
-        $quizzes = Quizz::all();
+        $quiz = Quizz::where('course_id', $course_id)->first();
 
-        return QuizResource::collection($quizzes);
+        return new QuizResource($quiz);
     }
 }

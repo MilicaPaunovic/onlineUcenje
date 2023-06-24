@@ -58,6 +58,8 @@ function Courses() {
             <th>Description</th>
             <th>Price</th>
             <th>Open Course</th>
+            <th>Test</th>
+
           </tr>
         </thead>
         <tbody>
@@ -67,6 +69,8 @@ function Courses() {
               <td>{course.description}</td>
               <td>{course.price}</td>
               <td><Link to={`/kursevi/${course.id}`}>Open Course</Link></td>
+              <td><Link to={`/test/${course.id}`}>Test </Link></td>
+
             </tr>
           ))}
         </tbody>
