@@ -17,7 +17,8 @@ function Navbar() {
       sessionStorage.removeItem('token');
       alert("You have been logged out.");
       navigate('/login')
-      
+      window.sessionStorage.setItem('token',null);
+      sessionStorage.clear();
     })
     .catch(error => {
       console.log(error.response.data);
@@ -26,9 +27,17 @@ function Navbar() {
   };
 
   return (
+    <>
+    {sessionStorage.getItem("token")? 
+            <div className="navbar-container">
+            <button onClick={handleLogout}>Logout</button>
+        </div>
+:
     <div className="navbar-container">
-      <button onClick={handleLogout}>Logout</button>
-    </div>
+                <button>dobro dosli</button>
+            </div>
+}</>
+    
   );
 };
 
