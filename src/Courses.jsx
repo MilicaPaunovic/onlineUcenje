@@ -33,7 +33,7 @@ function Courses() {
               <td>{course.name}</td>
               <td>{course.description}</td>
               <td>{course.price}</td>
-              <td><Link to={`/courses/${course.id}`}>Open Course</Link></td>
+              <td><Link to={`/kursevi/${course.id}`}>Open Course</Link></td>
             </tr>
           ))}
         </tbody>

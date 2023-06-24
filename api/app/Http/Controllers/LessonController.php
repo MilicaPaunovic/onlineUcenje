@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Resources\LessonResource;
+use App\Models\Course;
 use App\Models\Lesson;
 use Illuminate\Http\Request;
 
@@ -10,12 +11,18 @@ class LessonController extends Controller
 {
     
      
-    public function index()
+    public function index($course_id)
     {
-        $lessons = Lesson::all();
-
-        return LessonResource::collection($lessons);
+        $course = Course::find($course_id);
+    
+        if ($course) {
+            $lessons = $course->lessons;
+            return LessonResource::collection($lessons);
+        } else {
+            return response()->json(['error' => 'Course not found'], 404);
+        }
     }
+    
 
     public function show($id)
     {
