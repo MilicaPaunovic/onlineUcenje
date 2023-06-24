@@ -22,6 +22,7 @@ function Login() {
       .then(response => {
         if(response.data.status==200){
           alert("USPEH")
+          window.sessionStorage.setItem('token',response.data.access_token)
           navigate('/');
         }else{
           alert("GRESKA")
