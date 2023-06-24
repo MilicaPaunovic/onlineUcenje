@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import './Courses.css';
 import { Link } from 'react-router-dom';
+import './Courses.css';
+
 function Courses() {
   const [courses, setCourses] = useState([]);
+  const [search, setSearch] = useState('');
+  const [sortType, setSortType] = useState('asc');
 
   useEffect(() => {
     axios.get('http://127.0.0.1:8000/api/courses')
@@ -15,9 +18,22 @@ function Courses() {
       });
   }, []);
 
+  
+
   return (
     <div className="courses-container">
       <h2>Courses</h2>
+      <div>
+        <input 
+          type="text" 
+          placeholder="Search courses..." 
+          onChange={(e) => setSearch(e.target.value)}
+        />
+        <select onChange={(e) => setSortType(e.target.value)}>
+          <option value="asc">Ascending</option>
+          <option value="desc">Descending</option>
+        </select>
+      </div>
       <table>
         <thead>
           <tr>
@@ -28,7 +44,7 @@ function Courses() {
           </tr>
         </thead>
         <tbody>
-          {courses.map(course => (
+          {courses.filter(course => course.name.toLowerCase().includes(search.toLowerCase())).map(course => (
             <tr key={course.id}>
               <td>{course.name}</td>
               <td>{course.description}</td>
