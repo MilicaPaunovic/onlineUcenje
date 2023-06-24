@@ -18,7 +18,24 @@ function Courses() {
       });
   }, []);
 
-  
+  useEffect(() => {
+    const sortArray = type => {
+      const types = {
+        asc: 'asc',
+        desc: 'desc',
+      };
+      const sortProperty = types[type];
+      let sorted = [...courses];
+      if (sortProperty === 'asc') {
+        sorted = sorted.sort((a, b) => a.name.localeCompare(b.name));
+      } else {
+        sorted = sorted.sort((a, b) => b.name.localeCompare(a.name));
+      }
+      setCourses(sorted);
+    };
+
+    sortArray(sortType);
+  }, [sortType]);
 
   return (
     <div className="courses-container">
