@@ -23,8 +23,12 @@ function Login() {
         if(response.data.status==200){
           alert("USPEH")
           window.sessionStorage.setItem('token',response.data.access_token)
-          ///if(response.data.role==)
-          navigate('/kursevi');
+          console.log(response.data)
+          if(response.data.user.role=="student"){
+            navigate('/kursevi');
+          }else{
+            navigate('/profesor');
+          }
         }else{
           alert("GRESKA")
 

@@ -7,6 +7,8 @@ import Navbar from './Navbar';
 import Courses from './Courses';
 import Course from './Course';
 import Test from './Test';
+import Profesor from './Profesor';
+import ProfesorKurs from './ProfesorKurs';
 function App() {
   return (
     <Router>
@@ -14,6 +16,8 @@ function App() {
         <Navbar></Navbar>
         <Routes>
          
+        <Route path="/profesor" element={   <Profesor></Profesor>} />
+        <Route path="/profesor/kursevi/:id" element={   <ProfesorKurs></ProfesorKurs>} />
           
           <Route path="/login" element={   <Login></Login>} />
           <Route path="/register" element={   <Register></Register>} />
