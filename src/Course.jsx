@@ -26,6 +26,8 @@ function Course() {
             <th>Title</th>
             <th>Content</th>
             <th>Order</th>
+            <th>Lesson</th>
+
           </tr>
         </thead>
         <tbody>
@@ -34,6 +36,8 @@ function Course() {
               <td>{lesson.title}</td>
               <td>{lesson.content}</td>
               <td>{lesson.order}</td>
+              <td><a href={lesson.video} target="_blank"  >POGLEDAJ LEKCIJU</a></td>
+
             </tr>
           ))}
         </tbody>
