@@ -7,6 +7,7 @@ function Courses() {
   const [courses, setCourses] = useState([]);
   const [search, setSearch] = useState('');
   const [sortType, setSortType] = useState('asc');
+  const [exchangeRates, setExchangeRates] = useState({}); // Dodatno stanje za kursne liste
 
   useEffect(() => {
     axios.get('http://127.0.0.1:8000/api/courses')
@@ -37,6 +38,21 @@ function Courses() {
     sortArray(sortType);
   }, [sortType]);
 
+  useEffect(() => {
+    axios.get('https://api.exchangerate-api.com/v4/latest/EUR') // API za valutne kurseve
+      .then(response => {
+        setExchangeRates(response.data.rates);
+      })
+      .catch(error => {
+        console.log(error.response.data);
+      });
+  }, []);
+
+  const convertCurrency = (amount, currency) => {
+    const exchangeRate = exchangeRates[currency];
+    return (amount * exchangeRate).toFixed(2);
+  };
+
   return (
     <div className="courses-container">
       <h2>Courses</h2>
@@ -56,10 +72,10 @@ function Courses() {
           <tr>
             <th>Name</th>
             <th>Description</th>
-            <th>Price</th>
+            <th>Price (EUR)</th>
+            <th>Price (RSD)</th>
             <th>Open Course</th>
             <th>Test</th>
-
           </tr>
         </thead>
         <tbody>
@@ -68,9 +84,9 @@ function Courses() {
               <td>{course.name}</td>
               <td>{course.description}</td>
               <td>{course.price}</td>
+              <td>{convertCurrency(course.price, 'RSD')}</td>
               <td><Link to={`/kursevi/${course.id}`}>Open Course</Link></td>
               <td><Link to={`/test/${course.id}`}>Test </Link></td>
-
             </tr>
           ))}
         </tbody>
