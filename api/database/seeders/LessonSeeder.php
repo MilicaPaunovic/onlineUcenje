@@ -23,6 +23,7 @@ class LessonSeeder extends Seeder
                 'title' => 'Lekcija 1',
                 'content' => 'Ovo je sadržaj lekcije 1 za kurs ' . $course->name . '.',
                 'order' => 1,
+                'video'=>'https://www.youtube.com/watch?v=8dWL3wF_OMw'
             ]);
 
             $lesson2 = Lesson::create([
@@ -30,6 +31,7 @@ class LessonSeeder extends Seeder
                 'title' => 'Lekcija 2',
                 'content' => 'Ovo je sadržaj lekcije 2 za kurs ' . $course->name . '.',
                 'order' => 2,
+                'video'=>'https://www.youtube.com/watch?v=c2M-rlkkT5o'
             ]);
         }
     }

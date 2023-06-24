@@ -20,6 +20,7 @@ class LessonResource extends JsonResource
             'title' => $this->title,
             'content' => $this->content,
             'order' => $this->order,
+            'video' => $this->video,
             'course' => new CourseResource(Course::find($this->course_id)),
              
         ];
