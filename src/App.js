@@ -6,8 +6,8 @@ import Register from './Register';
 function App() {
   return (
     <Router>
-    <div>
-        <Navbar />
+    
+        
         <Routes>
          
           
@@ -16,7 +16,7 @@ function App() {
 
           
         </Routes>
-        </div>
+        
     </Router>
  
   );

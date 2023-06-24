@@ -1,12 +1,13 @@
 import { useState } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 function Login() {
   const [formData, setFormData] = useState({
     email: '',
     password: ''
   });
-
+  let navigate = useNavigate();
   const { email, password } = formData;
 
   const handleChange = e => {
@@ -17,10 +18,16 @@ function Login() {
     e.preventDefault();
 
     axios
-      .post('/login', formData)
+      .post('http://127.0.0.1:8000/api/login', formData)
       .then(response => {
-        alert("USPEH")
-        console.log(response.data);
+        if(response.data.status==200){
+          alert("USPEH")
+          navigate('/');
+        }else{
+          alert("GRESKA")
+
+        }
+        
       })
       .catch(error => {
         alert("GRESKA")

@@ -28,7 +28,7 @@ class AuthController extends Controller
             'role'=>'student'
         ]);
 
-        return response()->json(['message' => 'Registration successful'], 201);
+        return response()->json(['message' => 'Registration successful','status'=>200], 201);
     }
 
     public function login(Request $request)
@@ -53,6 +53,7 @@ class AuthController extends Controller
         return response()->json([
             'access_token' => $token,
             'user' => $userResource,
+            'status'=>200
         ], 200);
     }
  

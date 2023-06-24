@@ -1,7 +1,9 @@
 import { useState } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 function Register() {
+  let navigate = useNavigate();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -18,10 +20,16 @@ function Register() {
     e.preventDefault();
 
     axios
-      .post('/register', formData)
+      .post('http://127.0.0.1:8000/api/register', formData)
       .then(response => {
-        alert("USPEH")
-        console.log(response.data);
+        if(response.data.status==200){
+          alert("USPEH")
+          navigate('/login');
+        }else{
+          alert("GRESKA")
+        }
+        
+        console.log();
       })
       .catch(error => {
         alert("GRESKA")
