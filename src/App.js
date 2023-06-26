@@ -14,7 +14,7 @@ import Insert from './Insert';
 function App() {
   return (
     <Router>
-    
+        
         <Navbar></Navbar>
         <Routes>
         <Route path="/insert/:id" element={   <Insert></Insert>} />
@@ -24,7 +24,7 @@ function App() {
         <Route path="/profesor" element={   <Profesor></Profesor>} />
         <Route path="/profesor/kursevi/:id" element={   <ProfesorKurs></ProfesorKurs>} />
           
-          <Route path="/login" element={   <Login></Login>} />
+          <Route path="/" element={   <Login></Login>} />
           <Route path="/register" element={   <Register></Register>} />
           <Route path="/kursevi" element={   <Courses></Courses>} />
           <Route path="/kursevi/:id" element={   <Course></Course>} />

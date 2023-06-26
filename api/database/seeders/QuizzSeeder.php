@@ -58,6 +58,7 @@ class QuizzSeeder extends Seeder
                 'answer' => 'Odgovor 2',
                 'is_correct' => true,
             ]);
+            
         }
     }
 }
