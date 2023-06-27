@@ -18,9 +18,11 @@ const Test = () => {
                 console.log(error);
             });
     }, [id]);
-
+    function krajKviza(){
+        alert("Hvala! Test ce biti ocenjen u narednih 7 dana.")
+    }
     return (
-        <div>
+        <div className='quizz'>
             <h1>{naslov}</h1>
             {quiz && quiz.map((question) => (
                 <div key={question.id}>
@@ -33,7 +35,8 @@ const Test = () => {
                     ))}
                 </div>
             ))}
-            <button>Submit</button>
+            <br />
+            <button onClick={krajKviza}>Submit</button>
         </div>
     );
 };

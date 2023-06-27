@@ -91,3 +91,12 @@ button:hover {
 .update-form-container button:hover {
   background-color: #34495e;
 }
+
+
+.quizz{
+  margin: 10%;
+}
+
+.course-container{
+  margin: 5%;
+}

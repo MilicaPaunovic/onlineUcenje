@@ -24,7 +24,7 @@ function Register() {
       .then(response => {
         if(response.data.status==200){
           alert("USPEH")
-          navigate('/login');
+          navigate('/');
         }else{
           alert("GRESKA")
         }
